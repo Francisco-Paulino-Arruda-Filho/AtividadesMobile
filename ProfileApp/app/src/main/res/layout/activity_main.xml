@@ -70,6 +70,54 @@
 
             <!-- Experiências serão adicionadas dinamicamente -->
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/educationLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="16dp">
+
+            <!-- Título da Educação -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Educação"
+                android:textSize="18sp"
+                android:paddingBottom="8dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/skillsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="16dp">
+
+            <!-- Título das Habilidades -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Habilidades"
+                android:textSize="18sp"
+                android:paddingBottom="8dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/projectsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="16dp">
+
+            <!-- Título dos Projetos -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Projetos"
+                android:textSize="18sp"
+                android:paddingBottom="8dp"/>
+        </LinearLayout>
+
     </LinearLayout>
 
 

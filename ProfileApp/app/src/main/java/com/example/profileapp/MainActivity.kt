@@ -24,6 +24,54 @@ class MainActivity : AppCompatActivity() {
         descriptionText.text = "Desenvolvedora de software com 2 anos de experiência."
         currentJobText.text = "Emprego Atual: Engenheira de Software na TechX"
 
+        // Inicializando novos layouts
+        val educationLayout = findViewById<LinearLayout>(R.id.educationLayout)
+        val skillsLayout = findViewById<LinearLayout>(R.id.skillsLayout)
+        val projectsLayout = findViewById<LinearLayout>(R.id.projectsLayout)
+
+        // Lista de educação
+        val educations = listOf(
+            "Bacharelado em Engenharia de Software - UFC"
+        )
+
+        // Lista de habilidades
+        val skills = listOf(
+            "Java", "Git", "GitHub",
+            "React", "TS", "JS", "Ionic", "PHP", "Firebase", "MySQL", "PSQL"
+        )
+
+        // Lista de projetos
+        val projects = listOf(
+            "Site musseu de Quixadá - Colaborador",
+            "Sustainow - Colaborador",
+            "SGEC - Colaborador"
+        )
+
+        // Adicionando educação dinamicamente
+        for (education in educations) {
+            val textView = TextView(this)
+            textView.text = education
+            textView.textSize = 16f
+            educationLayout.addView(textView)
+        }
+
+        // Adicionando habilidades dinamicamente
+        for (skill in skills) {
+            val textView = TextView(this)
+            textView.text = skill
+            textView.textSize = 16f
+            skillsLayout.addView(textView)
+        }
+
+        // Adicionando projetos dinamicamente
+        for (project in projects) {
+            val textView = TextView(this)
+            textView.text = project
+            textView.textSize = 16f
+            projectsLayout.addView(textView)
+        }
+
+
         // Lista de experiências
         val experiencias = listOf(
             "Analista de Sistemas - Empresa A",
