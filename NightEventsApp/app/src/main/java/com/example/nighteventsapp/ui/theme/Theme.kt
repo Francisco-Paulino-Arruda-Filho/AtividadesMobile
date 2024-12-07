@@ -9,6 +9,7 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -16,26 +17,36 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = Color(0xFFBB86FC), // Roxo vibrante para o modo escuro
+    onPrimary = Color.Black, // Contraste com o primário
+    secondary = Color(0xFF03DAC6), // Verde-água
+    onSecondary = Color.Black,
+    tertiary = Color(0xFFCF6679), // Vermelho suave
+    onTertiary = Color.Black,
+    background = Color(0xFF121212), // Fundo escuro padrão
+    onBackground = Color(0xFFE0E0E0), // Texto claro no fundo escuro
+    surface = Color(0xFF1E1E1E), // Superfícies para contraste sutil
+    onSurface = Color(0xFFE0E0E0), // Texto em superfícies
+    error = Color(0xFFFF5722), // Laranja vibrante para erros
+    onError = Color.Black // Texto em erros
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
+    primary = Color(0xFF6200EA), // Roxo mais escuro e elegante
     onPrimary = Color.White,
+    secondary = Color(0xFF018786), // Verde-água mais denso
     onSecondary = Color.White,
+    tertiary = Color(0xFFD81B60), // Rosa profundo
     onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    background = Color(0xFFFFF8E1), // Bege suave para menos brilho
+    onBackground = Color(0xFF1A1A1A), // Texto escuro em fundo claro
+    surface = Color(0xFFFFFFFF), // Branco limpo para superfícies
+    onSurface = Color(0xFF1A1A1A), // Texto escuro
+    error = Color(0xFFB00020), // Vermelho clássico para erros
+    onError = Color.White // Texto em erros
 )
+
+
 
 val TypographyPerson = Typography(
     titleLarge = TextStyle( // h4

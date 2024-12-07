@@ -38,27 +38,38 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.navigation.NavHostController
+import android.media.RingtoneManager
+import android.net.Uri
 
-// Função para criar o canal de notificação
 private fun createNotificationChannel(context: Context) {
     val name = "Inscrição de Eventos"
     val descriptionText = "Canal para notificações de inscrição em eventos"
     val importance = NotificationManager.IMPORTANCE_DEFAULT
+
+    // Definir o som padrão
+    val soundUri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+
     val channel = NotificationChannel("EVENT_CHANNEL", name, importance).apply {
         description = descriptionText
+        setSound(soundUri, null) // Configura o som para o canal
     }
+
     val notificationManager: NotificationManager =
         context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     notificationManager.createNotificationChannel(channel)
 }
 
+
 // Função para enviar a notificação
 private fun sendNotification(context: Context, eventTitle: String) {
+    val soundUri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+
     val builder = NotificationCompat.Builder(context, "EVENT_CHANNEL")
-        .setSmallIcon(android.R.drawable.ic_notification_overlay) // Use um ícone apropriado
+        .setSmallIcon(android.R.drawable.ic_notification_overlay)
         .setContentTitle("Inscrição Confirmada")
         .setContentText("Você foi inscrito no evento: $eventTitle")
         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+        .setSound(soundUri) // Configura o som no builder (opcional, pois o canal já define isso)
 
     with(NotificationManagerCompat.from(context)) {
         if (ActivityCompat.checkSelfPermission(
@@ -68,10 +79,9 @@ private fun sendNotification(context: Context, eventTitle: String) {
         ) {
             return
         }
-        notify(eventTitle.hashCode(), builder.build()) // ID único por evento
+        notify(eventTitle.hashCode(), builder.build())
     }
 }
-
 
 @Composable
 fun HomeScreen(navController: NavHostController, context: Context) {
@@ -125,7 +135,10 @@ fun HomeScreen(navController: NavHostController, context: Context) {
                         .clickable {
                             navController.navigate("eventDetails/${event.id}")
                         },
-                    elevation = CardDefaults.cardElevation(4.dp)
+                    elevation = CardDefaults.cardElevation(4.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.secondary
+                    ),
                 ) {
                     Column(
                         modifier = Modifier
@@ -190,7 +203,8 @@ fun HomeScreen(navController: NavHostController, context: Context) {
                                     sendNotification(context, event.title) // Envia notificação
                                 }
                             },
-                            modifier = Modifier.fillMaxWidth()
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = androidx.compose.material3.ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onBackground), // Cor do botão
                         ) {
                             Text(
                                 text = if (event.isSubscribed.value) "Inscrito" else "Se Inscrever" // Altera o texto dinamicamente
@@ -201,7 +215,8 @@ fun HomeScreen(navController: NavHostController, context: Context) {
                         // Botão "Ver mais sobre"
                         Button(
                             onClick = { navController.navigate("eventDetails/${event.id}") },
-                            modifier = Modifier.fillMaxWidth()
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = androidx.compose.material3.ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error), // Cor do botão
                         ) {
                             Text(text = "Ver mais sobre ${event.title}")
                         }
