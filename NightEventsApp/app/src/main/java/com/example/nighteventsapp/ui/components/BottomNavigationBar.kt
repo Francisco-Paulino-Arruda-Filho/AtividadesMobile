@@ -17,7 +17,7 @@ fun BottomNavigationBar(navController: NavHostController) {
     NavigationBar {
         // Lista de itens com rotas, rótulos e ícones
         val items = listOf(
-            Triple("home", "Home", Icons.Default.Home),
+            Triple("home_screen", "Home", Icons.Default.Home),
             Triple("events", "Inscritos", Icons.Default.Event),
             Triple("favorites", "Favoritos", Icons.Default.Favorite)
         )
