@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "238984594500",
+    "project_id": "investidor-a98a1",
+    "storage_bucket": "investidor-a98a1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:238984594500:android:a9acc782ae8f4a5ed6a811",
+        "android_client_info": {
+          "package_name": "com.example.investigatorapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIVLgHsaYkqBIIv4TudnJtJVk8veHDIMk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
